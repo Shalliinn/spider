@@ -11,8 +11,9 @@ function onsubmit(e){
         alert('please enter fields')
     }
     else{
-localStorage.setItem('userdetailsname',namei.value)
-localStorage.setItem('userdetailsemail',emaili.value)
-
-    }
-}
+        localStorage.setItem('userdetailsname',namei.value)
+        localStorage.setItem('userdetailsemail',emaili.value)
+        
+            }
+        }
+   
