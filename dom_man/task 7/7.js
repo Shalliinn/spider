@@ -2,12 +2,11 @@ var itemList=document.querySelector('#items');
 //parentNode
  console.log(itemList.parentNode);
 itemList.parentNode.style.backgroundColor='grey';
-console.log(itemList.parentNode.parentNode.parentNode); */
+console.log(itemList.parentNode.parentNode.parentNode);
 //parenElement
  console.log(itemList.parentElement);
 itemList.parentElement.style.backgroundColor='grey';
-console.log(itemList.parentElement.parentElement.parentElement); */
-
+console.log(itemList.parentElement.parentElement.parentElement); 
 //childNode
 console.log(itemList.childNodes);
  console.log(itemList.children);
@@ -28,7 +27,7 @@ itemList.lastElementChild.textContent='hello1'
 //prevsibling
  
 console.log(itemList.previousElementSibling);
-itemList.previousElementSibling.style.color='green' */
+itemList.previousElementSibling.style.color='green' 
 console.log(itemList.nextElementSibling);
 
 //createlement
