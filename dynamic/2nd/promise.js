@@ -24,26 +24,24 @@ if(!error){
 }
     },2000)
 })
-    const userpromise= new Promise((resolve,reject)=>{
-setTimeout(resolve,2000,new Date())
-    })
-    const deletion= new Promise((resolve,reject)=>{
-                deletepost().then(getposts)
-              arr=[];
-              posts.forEach((post)=>
-              {
-                arr.push(`${post.title}`)
-              })
-              resolve(arr)        
-        })
-        
-        
-
-Promise.all([cpromise,userpromise]).then(deletion)
-Promise.all([deletion]).then((values)=>{console.log(values)})
+    
 return cpromise;
 }
-
+function activitytime(){
+const userpromise= new Promise((resolve,reject)=>{
+       setTimeout(()=>{
+             resolve(new Date())
+       },2000)
+            })
+            return userpromise;
+        }
+        //createpost({title:'post three',body:'this is post three'}).then(getposts).catch(err=>console.log(err))
+        const post3={title:'post three',body:'this is post three'}
+        const post4={title:'post four',body:'this is post four'}
+        //Promise.all([createpost(post3),activitytime()]).then((values)=>{console.log(values)})
+        Promise.all([createpost(post4),activitytime()]).then((values)=>{console.log(values)})
+        .then(deletepost)
+        .then(getposts)
 function createpost1(post){
     return new Promise((resolve,reject)=>{
     setTimeout(()=>{
@@ -73,7 +71,8 @@ function deletepost(){
 
 
 
- createpost({title:'post three',body:'this is post three'}).then(getposts).catch(err=>console.log(err))
+ 
+ //createpost({title:'post four',body:'this is post four'}).then(getposts).catch(err=>console.log(err))
 // createpost1({title:'post four',body:'this is post four'})
 // .then(getposts)
 // .then(deletepost)
@@ -92,7 +91,25 @@ function deletepost(){
 // setTimeout(resolve,2000,'Goodbye'))
 // Promise.all([promise1,promise2,promise3]).then(values=>console.log(values))
 
-
+// const userpromise= new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         resolve(new Date())
+//     },2000)
+//         })
+//         const deletion= new Promise((resolve,reject)=>{
+//                     deletepost().then(getposts)
+//                   arr=[];
+//                   posts.forEach((post)=>
+//                   {
+//                     arr.push(`${post.title}`)
+//                   })
+//                   resolve(arr)        
+//             })
+            
+            
+    
+    
+    //Promise.all([deletion]).then((values)=>{console.log(values)})
 
 
 

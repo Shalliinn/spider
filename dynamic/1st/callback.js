@@ -18,17 +18,17 @@ posts.push(post);
 callback();
     },2000)
 }
-function createpost4(post,callback1,callback2){
+function createpostnew(post,callback1,callback2){
     setTimeout(()=>{
  callback1(post,callback2);
     },3000)
 }
-function createpost5(post,callback1,callback2){
-    setTimeout(()=>{
- callback1(post,callback2);
-    },3000)
-}
+// function createpost5(post,callback1,callback2){
+//     setTimeout(()=>{
+//  callback1(post,callback2);
+//     },3000)
+// }
 getposts();
 createpost({title:'post three',body:'this is post three'},getposts)
-createpost4({title:'post four',body:'this is post four'},createpost,getposts)
-createpost5({title:'post five',body:'this is post five'},createpost,getposts)
+createpostnew({title:'post four',body:'this is post four'},createpost,getposts)
+createpostnew({title:'post five',body:'this is post five'},createpost,getposts)
