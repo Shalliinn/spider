@@ -35,6 +35,18 @@ function addItem(e){
 
     }
 }
+window.addEventListener("DOMContentLoaded",()=>{
+    axios.get("https://crudcrud.com/api/3726483fd944438e95bbbdc1392c6d8e/appoinmentData")
+    .then((response)=>{
+        console.log(response)
+         for(var i=0;i<response.data.length;i++){
+            showonscreen(response.data[i])
+         }
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
+})
 
  function showonscreen(data){
     var li=document.createElement('li');
