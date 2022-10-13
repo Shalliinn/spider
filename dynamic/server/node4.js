@@ -19,7 +19,7 @@ function addItem(e){
             Emailid:desc.value,
             Phoneno:cate.value
         }
-        axios.post("https://crudcrud.com/api/3726483fd944438e95bbbdc1392c6d8e/appoinmentData",Obj)
+        axios.post("https://crudcrud.com/api/4870f87315874cb184403d9dd48b778f/appoinmentData",Obj)
         .then((response)=>{
             showonscreen(response.data)
 
@@ -36,7 +36,7 @@ function addItem(e){
     }
 }
 window.addEventListener("DOMContentLoaded",()=>{
-    axios.get("https://crudcrud.com/api/3726483fd944438e95bbbdc1392c6d8e/appoinmentData")
+    axios.get("https://crudcrud.com/api/4870f87315874cb184403d9dd48b778f/appoinmentData")
     .then((response)=>{
         console.log(response)
          for(var i=0;i<response.data.length;i++){
@@ -66,13 +66,28 @@ window.addEventListener("DOMContentLoaded",()=>{
     itemlist.appendChild(li)
     
     
-        document.addEventListener('click',deleteitem);
+        itemlist.addEventListener('click',deleteitem);
     
         function deleteitem(e){
             if(e.target==delbtn){
                 if(confirm('Are U sure?')){
                     var li=e.target.parentElement;
                    // localStorage.removeItem(Obj.description);
+                   axios.get(`https://crudcrud.com/api/4870f87315874cb184403d9dd48b778f/appoinmentData`)
+                   .then((response)=>{
+                       console.log(response)
+                        for(var i=0;i<response.data.length;i++){
+
+                            if(li.innerHTML.indexOf(response.data[i].Emailid)!=-1){
+                            axios.delete(`https://crudcrud.com/api/4870f87315874cb184403d9dd48b778f/appoinmentData/${response.data[i]._id}`)
+                             .then()
+                             .catch(err=>console.log(err))
+                            }
+                        }
+                   })
+                   .catch((error)=>{
+                       console.log(error);
+                   })
                     itemlist.removeChild(li)
                 }
             }
@@ -82,19 +97,28 @@ window.addEventListener("DOMContentLoaded",()=>{
         function edititem(e){
             if(e.target==edibtn){
                 var li=e.target.parentElement;
-                // for(var i=0;i<itemlist.getElementsByClassName('item').length;i++){
-                //     if(itemlist.getElementsByClassName('item')[i]==li){
-                //         let myobj_deserialized1=JSON.parse(itemlist.getElementsByClassName('item')[i].firstChild.textContent);
-                //         Form.querySelector('#expence').value=myobj_deserialized1.expence
-                //         Form.querySelector('#description').value=myobj_deserialized1.description;
-                //         Form.querySelector('#category').value=myobj_deserialized1.category;
-                //         localStorage.removeItem(Obj.description);
-    
-                //     }
-                // }
-                itemlist.removeChild(li)
+                axios.get(`https://crudcrud.com/api/4870f87315874cb184403d9dd48b778f/appoinmentData`)
+                .then((response)=>{
+                for(var i=0;i<response.data.length;i++){
+                if(li.innerHTML.indexOf(response.data[i].Emailid)!=-1) {
+
+                    Form.querySelector('#expence').value=response.data[i].name
+                  Form.querySelector('#description').value=response.data[i].Emailid;
+                      Form.querySelector('#category').value=response.data[i].Phoneno;
+                      axios.delete(`https://crudcrud.com/api/4870f87315874cb184403d9dd48b778f/appoinmentData/${response.data[i]._id}`)
+                      .then()
+                      .catch(err=>console.log(err))
+
+                }
             }
-        }
-    }  
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+        itemlist.removeChild(li)
+    }
+ }
+  }
+    
     
  
