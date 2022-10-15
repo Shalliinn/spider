@@ -8,7 +8,7 @@ document.addEventListener("submit",addItem)
 // localStorage.setItem('userdescription','description')
 // localStorage.setItem('usercategory','category')
 
-function addItem(e){
+function addItem(e){dynamic/server/node4.js
     e.preventDefault();
     if(exp.value==='' || desc.value==='' || cate.value===''){
         alert('please enter fields')
@@ -29,7 +29,7 @@ function addItem(e){
             document.body.innerHTML=document.body.innerHTML+"<h4>something wrong</h4>"
             console.log(err)
         })
-       // let Obj_serialized=JSON.stringify(Obj);
+// let Obj_serialized=JSON.stringify(Obj);
 //localStorage.setItem(Obj.description,Obj_serialized);
 //let Obj_deserialized=JSON.parse(localStorage.getItem("Obj"))
 
