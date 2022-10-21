@@ -24,5 +24,6 @@ header.style.borderBottom='solid 3px #000';
 console.log(document.getElementsByClassName("title"));
 var head=document.getElementsByClassName("title");
 head[0].style.color='green'
-head[0].style.fontWeight='bold'
 
+head[0].style.fontWeight='bold'
+console.log(head);
